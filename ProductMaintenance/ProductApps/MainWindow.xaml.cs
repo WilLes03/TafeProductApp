@@ -29,7 +29,8 @@ namespace ProductApps
 
         private void calculateButton_Click(object sender, RoutedEventArgs e)
         {
-            decimal totalCharge, totalWrap;
+            decimal totalCharge, totalWrap, totalAfterGST;
+            double temp;
             try
             {
                 cProduct = new Product(Convert.ToDecimal(priceTextBox.Text), Convert.ToInt16(quantityTextBox.Text));
@@ -46,6 +47,12 @@ namespace ProductApps
 
             totalWrap = totalCharge + 5;
             totalWrapTextBox.Text = totalWrap.ToString();
+
+            temp = 1.1;
+
+            totalAfterGST = (decimal)temp * totalWrap;
+            totalChargeAfterGSTTextBox.Text = totalAfterGST.ToString();
+
 
         }
 
